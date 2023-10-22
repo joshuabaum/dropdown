@@ -50,5 +50,11 @@ const states = [
     {"name" : "Wyoming"}
 ];
 
+const artists = [
+    {"name" : "Drake"},
+    {"name" : "Sza"},
+    {"name" : "Daft Punk"},
+    {"name" : "Taylor Swift"},
+]
 
-export {states};
+export {states, artists};

@@ -5,6 +5,7 @@
 body{
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(to bottom right, #f7f8f9, #7589aa); 
+  background-color: rgb(245, 245, 245);
+  /* background-image: linear-gradient(to bottom right, #f7f8f9, #7589aa);  */
   align-content: center;
 }

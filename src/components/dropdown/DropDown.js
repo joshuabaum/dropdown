@@ -43,25 +43,43 @@ function DropDown({title, options, isMultiSelect}) {
   return (
     <div className="DropDown">
             <button className="DropDownButton" onClick={() => setIsOpen(prev => !prev)}>  
-                <p className="DropDownButtonTitle">
+        
+                <div className="DropDownButtonTitleContainer">
                     {
                         selectedItems.size === 0 
                             ? "Select " + (title.match('^[aieouAIEOU].*') ? "an " : "a ") + title 
-                            : Array.from(selectedItems).map((item) => { return item.name + ", " })
+                            : Array.from(selectedItems).map((item, index) => {
+                                 return (
+                                    <p className="DropDownButtonTitle">
+                                        {item.name + (index === selectedItems.size - 1  ? "" : ", ") }
+                                    </p>
+                                 )
+                                })
                     }
-                </p>
+                </div>
+                
+                
                 {isOpen ? <AiOutlineCaretUp className="DropDownButtonIcon"/>  : <AiOutlineCaretDown className="DropDownButtonIcon"/> }
                 
             </button>
             { isOpen ? 
                 <ul className="DropDownList"> 
-                    <li className="DropDownItem" onClick={() => updateSelectedItems(REMOVE_ALL)}><i><p>None</p></i></li>
-                    {isMultiSelect ? <li className="DropDownItem" onClick={() => updateSelectedItems(ADD_ALL)}><i><p>Select All</p></i></li>  : <div></div>}
+                    <li className="DropDownItem" onClick={() => updateSelectedItems(REMOVE_ALL)}>
+                        <p className="DropDownItemTitle" style={{fontStyle: "italic"}}>
+                            Clear Selection
+                        </p>
+                    </li>
+                    {isMultiSelect ? 
+                        <li className="DropDownItem" onClick={() => updateSelectedItems(ADD_ALL)}>
+                            <p className="DropDownItemTitle" style={{fontStyle: "italic"}}>Select All</p>
+                        </li>  
+                        : <div></div>
+                    }
                     {options.map((item, index) => {
                         return (
                                 <li className="DropDownItem" onClick={() => updateSelectedItems(item)}>
                                     <p className="DropDownItemTitle">{item.name}</p>
-                                    {selectedItems.has(item) ? <AiOutlineCheckSquare  className="DropDownItemIcon"/> : <AiOutlineBorder  className="DropDownItemIcon"/>}
+                                    {selectedItems.has(item) ? <AiOutlineCheckSquare  className="DropDownItemIconSelected"/> : <AiOutlineBorder  className="DropDownItemIcon"/>}
                                 </li> 
                                 )
                     })}
