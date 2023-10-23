@@ -49,6 +49,8 @@
 }
 
 .DropDownButtonTitleContainer {
+    font-weight: bold;
+
     float: left;
     display: flex;
     flex-wrap: wrap;

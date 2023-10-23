@@ -1,31 +1,32 @@
 import '../../style/dropdown.css';
 import { useState } from 'react';
-import { AiOutlineCaretDown, AiOutlineCaretUp, AiOutlineCheckSquare, AiOutlineBorder} from "react-icons/ai";
 
-// TODO:
-// 1. Styling sucks
-// 2. Limit # of visible buttons and add scrolling
-// 3. Add some different examples across the pages
-// 4. Add an obserable
+import DropDownButton from "./DropDownButton"
+import {DropDownItem} from "./DropDownItem";
 
-const REMOVE_ALL = -1;
-const ADD_ALL = -2;
+const CLEAR_SELECTION_ITEM = {name: "Clear Selection"};
+const SELECT_ALL_ITEM = {name: "Select All"};
 
-function DropDown({title, options, isMultiSelect}) {
+function DropDown({selectionTitle, selectableItems, isMultiSelectEnabled}) {
    const [isOpen, setIsOpen] = useState(false);
    const [selectedItems, setSelectedItems] = useState(new Set());
+
+   const isItemSelect = (item) => {
+    return selectedItems.has(item);
+   }
 
    const updateSelectedItems = (item) => {
     const isSelected = selectedItems.has(item);
 
-    if (item === REMOVE_ALL) {
+    if (item === CLEAR_SELECTION_ITEM) {
         selectedItems.clear();
-    } else if (item === ADD_ALL)  {
+    } else if (item === SELECT_ALL_ITEM)  {
         selectedItems.clear();
-        for (const option of options) {
+        selectedItems.add(SELECT_ALL_ITEM)
+        for (const option of selectableItems) {
             selectedItems.add(option);
         }
-    } else if (isMultiSelect) {
+    } else if (isMultiSelectEnabled) {
         if (isSelected) {
             selectedItems.delete(item);
         } else {
@@ -36,56 +37,33 @@ function DropDown({title, options, isMultiSelect}) {
         if (!isSelected) {
             selectedItems.add(item);
         }
-    } 
+    }
     setSelectedItems(new Set(selectedItems));
    }
 
   return (
     <div className="DropDown">
-            <button className={("DropDownButton" )  + (isOpen ? " DropDownButtonOpen" : "")} onClick={() => setIsOpen(prev => !prev)}>  
+
+        <DropDownButton isOpen={isOpen} setIsOpen={setIsOpen} selectedItems={selectedItems} selectionTitle={selectionTitle} SELECT_ALL_ITEM={SELECT_ALL_ITEM}/>
         
-                <div className="DropDownButtonTitleContainer">
+        {
+            isOpen ? 
+            <ul className="DropDownItemList">
+                <DropDownItem option={CLEAR_SELECTION_ITEM} style={{fontStyle: "italic"}} isItemSelected={isItemSelect} isCheckSquareEnabled={false} updateSelectedItems={updateSelectedItems}/>
+                {isMultiSelectEnabled
+                    ? <DropDownItem option={SELECT_ALL_ITEM} style={{fontStyle: "italic"}} isItemSelected={isItemSelect} isCheckSquareEnabled={true} updateSelectedItems={updateSelectedItems}/>
+                    : <div></div>
+                }   
+                {selectableItems.map((option, index) => 
                     {
-                        selectedItems.size === 0 
-                            ? "Select " + (title.match('^[aieouAIEOU].*') ? "an " : "a ") + title 
-                            : Array.from(selectedItems).map((item, index) => {
-                                 return (
-                                    <p className="DropDownButtonTitle">
-                                        {item.name + (index === selectedItems.size - 1  ? "" : ", ") }
-                                    </p>
-                                 )
-                                })
-                    }
-                </div>
-                
-                
-                {isOpen ? <AiOutlineCaretUp className="DropDownButtonIcon"/>  : <AiOutlineCaretDown className="DropDownButtonIcon"/> }
-                
-            </button>
-            { isOpen ? 
-                <ul className="DropDownItemList"> 
-                    <li className="DropDownItem" onClick={() => updateSelectedItems(REMOVE_ALL)}>
-                        <p className="DropDownItemTitle" style={{fontStyle: "italic"}}>
-                            Clear Selection
-                        </p>
-                    </li>
-                    {isMultiSelect ? 
-                        <li className="DropDownItem" onClick={() => updateSelectedItems(ADD_ALL)}>
-                            <p className="DropDownItemTitle" style={{fontStyle: "italic"}}>Select All</p>
-                        </li>  
-                        : <div></div>
-                    }
-                    {options.map((item, index) => {
                         return (
-                                <li className="DropDownItem" onClick={() => updateSelectedItems(item)}>
-                                    <p className="DropDownItemTitle">{item.name}</p>
-                                    {selectedItems.has(item) ? <AiOutlineCheckSquare  className="DropDownItemIconSelected"/> : <AiOutlineBorder  className="DropDownItemIcon"/>}
-                                </li> 
-                                )
-                    })}
-                </ul> 
-                : <div></div> 
-            }
+                            <DropDownItem option={option} isItemSelected={isItemSelect} isCheckSquareEnabled={true} updateSelectedItems={updateSelectedItems}/>
+                            )
+                    })
+                }
+            </ul> 
+            : <div></div> 
+        }
       </div>
   );
 }

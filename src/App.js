@@ -10,19 +10,19 @@ function App() {
       <div style={{height:10}}></div>
       
       <h1>Example 1: Single Select & Scrollable Item List</h1>
-      <DropDown title="State" isMultiSelect={false} options={states}></DropDown>
+      <DropDown selectionTitle="State" isMultiSelectEnabled={false} selectableItems={states}></DropDown>
       <div style={{height:10}}></div>
       
       <h1>Example 2: Single Select & Non Scrollable Item List</h1>
-      <DropDown title="Artist" isMultiSelect={false} options={artists}></DropDown>
+      <DropDown selectionTitle="Artist" isMultiSelectEnabled={false} selectableItems={artists}></DropDown>
       <div style={{height:10}}></div>
 
       <h1>Example 3: Multi Select & Scrollable Item List</h1>
-      <DropDown title="State" isMultiSelect={true} options={states}></DropDown>
+      <DropDown selectionTitle="State" isMultiSelectEnabled={true} selectableItems={states}></DropDown>
       <div style={{height:10}}></div>
 
       <h1>Example 4: Multi Select & Non Scrollable Item List</h1>
-      <DropDown title="Artist" isMultiSelect={true} options={artists}></DropDown>
+      <DropDown selectionTitle="Artist" isMultiSelectEnabled={true} selectableItems={artists}></DropDown>
       <div style={{height:10}}></div>
     </div>
   );
