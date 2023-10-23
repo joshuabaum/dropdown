@@ -43,18 +43,18 @@ function DropDown({selectionTitle, selectableItems, isMultiSelectEnabled}) {
 
   return (
     <div className="DropDown">
-
         <DropDownButton isOpen={isOpen} setIsOpen={setIsOpen} selectedItems={selectedItems} selectionTitle={selectionTitle} SELECT_ALL_ITEM={SELECT_ALL_ITEM}/>
-        
         {
-            isOpen ? 
-            <ul className="DropDownItemList">
+            isOpen
+            ? <ul className="DropDownItemList">
                 <DropDownItem option={CLEAR_SELECTION_ITEM} style={{fontStyle: "italic"}} isItemSelected={isItemSelect} isCheckSquareEnabled={false} updateSelectedItems={updateSelectedItems}/>
-                {isMultiSelectEnabled
+                {
+                    isMultiSelectEnabled
                     ? <DropDownItem option={SELECT_ALL_ITEM} style={{fontStyle: "italic"}} isItemSelected={isItemSelect} isCheckSquareEnabled={true} updateSelectedItems={updateSelectedItems}/>
                     : <div></div>
                 }   
-                {selectableItems.map((option, index) => 
+                {
+                    selectableItems.map((option, index) => 
                     {
                         return (
                             <DropDownItem option={option} isItemSelected={isItemSelect} isCheckSquareEnabled={true} updateSelectedItems={updateSelectedItems}/>
@@ -64,7 +64,7 @@ function DropDown({selectionTitle, selectableItems, isMultiSelectEnabled}) {
             </ul> 
             : <div></div> 
         }
-      </div>
+    </div>
   );
 }
 

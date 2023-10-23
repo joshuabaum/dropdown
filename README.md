@@ -3,6 +3,7 @@
 # To run this project locally:
 
 ## Clone the github repo
+gh repo clone joshuabaum/dropdown
 
 ## Open project directory
 
