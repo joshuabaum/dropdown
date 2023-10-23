@@ -42,7 +42,7 @@ function DropDown({title, options, isMultiSelect}) {
 
   return (
     <div className="DropDown">
-            <button className="DropDownButton" onClick={() => setIsOpen(prev => !prev)}>  
+            <button className={("DropDownButton" )  + (isOpen ? " DropDownButtonOpen" : "")} onClick={() => setIsOpen(prev => !prev)}>  
         
                 <div className="DropDownButtonTitleContainer">
                     {
@@ -63,7 +63,7 @@ function DropDown({title, options, isMultiSelect}) {
                 
             </button>
             { isOpen ? 
-                <ul className="DropDownList"> 
+                <ul className="DropDownItemList"> 
                     <li className="DropDownItem" onClick={() => updateSelectedItems(REMOVE_ALL)}>
                         <p className="DropDownItemTitle" style={{fontStyle: "italic"}}>
                             Clear Selection

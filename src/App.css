@@ -5,7 +5,8 @@
 body{
   width: 100vw;
   height: 100vh;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(241, 237, 234);
   /* background-image: linear-gradient(to bottom right, #f7f8f9, #7589aa);  */
   align-content: center;
+  font-family: Arial, Helvetica, sans-serif;
 }

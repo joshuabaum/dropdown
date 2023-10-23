@@ -1,100 +1,110 @@
 .DropDown {
     background-color: none;
+    filter: drop-shadow(rgb(53, 52, 52) 0.1rem 0.1rem 0.25em);
+
+    align-content: center;
+    list-style: none;
+
+    margin: 0 auto;
+
     width: wrap-content;
     max-width: 20vw;
     height: wrap-content;
-    margin: 0 auto;
-    align-content: center;
-    list-style: none;
-    filter: drop-shadow(rgb(53, 52, 52) 0.1rem 0.1rem 0.25em);
-}
-
-.DropDownList {
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    height: wrap-content;
-    max-height: 35vh;
-    margin: 0 auto;
-    padding: 0;
-    align-content: left;
-    list-style: none;
-    overflow-y: scroll;
-    border-radius: .5em;
 }
 
 .DropDownButton {
-    display: flex;
-    white-space: nowrap;
     background-color: white;
-    
-    width: wrap-content;
-    max-width: 100vw;
-    height: wrap-content;
-    max-height: 12vh;
-
-
-    margin: 0 auto;
     border-style: solid;
     border-radius: .5em;
     border-width: 0.1em;
     border-color: rgb(255, 255, 255);
+
+    display: flex;
     align-content: center;
     list-style: none;
+    margin: 0 auto;
 
     padding: 0.5em;
+    
+    width: wrap-content;
+    max-width: 30vw;
+    height: wrap-content;
+    max-height: 12vh;
 }
 
-.DropDownButton:hover {
+.DropDownButtonOpen {
     border-width: 0.1em;
     border-color: rgb(125, 173, 235);
 }
 
 .DropDownButtonIcon {
     float: right;
+
     width: 0.75vw;
+    height: 100%;
+
     padding-left: 0.2vw;
     padding-top: 0.2vw;
     margin: auto auto;
-    height: 100%;
 }
 
 .DropDownButtonTitleContainer {
     float: left;
     display: flex;
-    width: wrap-content;
-    max-width: 90%;
-    margin: auto auto;
-    height: wrap-content;
-    max-height: 10vh;
     flex-wrap: wrap;
     overflow-y: hidden;
+
+    margin: auto auto;
+
+    width: wrap-content;
+    max-width: 95%;
+    height: wrap-content;
+    max-height: 10vh;
 }
 
 .DropDownButtonTitle {
-    width: wrap-content;
-    margin: auto auto;
-    height: 2.5vh;
     padding-right: 0.2vw;
-    margin: 0;
+    margin: auto auto;
+
+    width: wrap-content;
+    height: 2.5vh;
+}
+
+.DropDownItemList {
+    background-color: rgb(255, 255, 255);
+    border-radius: .5em;
+    
+    align-content: left;
+    list-style: none;
+    overflow-y: scroll;
+        
+    margin: 0 auto;
+    padding: 0;
+
+    width: wrap-content;
+    max-width: 12vw;
+    height: wrap-content;
+    max-height: 35vh;
+
 }
 
 .DropDownItem {
     display: flex;
+    margin: 0 auto;
+
     background-color: rgb(255, 255, 255);
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-width: 0.1em;
 
-    margin: 0 auto;
     height: 4vh;
-
     width: wrap-content;
+    max-width: match-parent; 
 }
 
 .DropDownItem:hover {
     border-width: 0.1em;
     border-style: solid;
-    /* border-color: black; */
     border-width: 0.1em;
     background-color: rgb(125, 173, 235);
 }
@@ -106,23 +116,31 @@
 
 .DropDownItemIcon {
     float: right;
-    width: 2em;
+
     margin: auto 0;
     padding: 0;
+
+    width: 25%;
+
 }
 
 .DropDownItemIconSelected{
     color: rgb(125, 173, 235);
+    
     float: right;
-    width: 2em;
+
     margin: auto 0;
     padding: 0;
+    
+    width: 25%;
 }
 
 .DropDownItemTitle {
     float: left;
-    width: wrap-context;
-    max-width: 10em;
+
     margin: auto 0;
     padding: 0;
+
+    width: 75%;
+    max-width: 10em;
 }

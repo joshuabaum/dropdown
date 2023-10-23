@@ -14,7 +14,7 @@ function App() {
       <div style={{height:10}}></div>
       
       <h1>Example 2: Single Select & Non Scrollable Item List</h1>
-      <DropDown title="artist" isMultiSelect={false} options={artists}></DropDown>
+      <DropDown title="Artist" isMultiSelect={false} options={artists}></DropDown>
       <div style={{height:10}}></div>
 
       <h1>Example 3: Multi Select & Scrollable Item List</h1>
@@ -22,7 +22,7 @@ function App() {
       <div style={{height:10}}></div>
 
       <h1>Example 4: Multi Select & Non Scrollable Item List</h1>
-      <DropDown title="artist" isMultiSelect={true} options={artists}></DropDown>
+      <DropDown title="Artist" isMultiSelect={true} options={artists}></DropDown>
       <div style={{height:10}}></div>
     </div>
   );
