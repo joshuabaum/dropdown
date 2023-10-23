@@ -17,7 +17,7 @@ In the project directory run
 
 ## Start project
 
-then run
+In the project directory run
 ### `npm start`
 
 Now the app is running development mode at [http://localhost:3000](http://localhost:3000).
