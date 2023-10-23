@@ -1,15 +1,21 @@
-# This project is deployed at joshuabaum.github.io/dropdown, no need to download and run locally!
+# This project is deployed at [joshuabaum.github.io/dropdown](joshuabaum.github.io/dropdown) , no need to download and run locally!
 
 # To run this project locally:
 
-## 1. Clone the github repo
+## Clone the github repo
 
 ### `gh repo clone joshuabaum/dropdown`
 
 ## Open project directory
 
+### `cd path/to/cloned/project`
+
+## Install depedencies
+
 In the project directory run
 ### `npm install`
+
+## Start project
 
 then run
 ### `npm start`
