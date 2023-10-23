@@ -1,4 +1,4 @@
-# This project is deployed at [joshuabaum.github.io/dropdown](joshuabaum.github.io/dropdown) , no need to download and run locally!
+# This project is deployed at [http://joshuabaum.github.io/dropdown](http://joshuabaum.github.io/dropdown) , no need to download and run locally!
 
 # To run this project locally:
 
