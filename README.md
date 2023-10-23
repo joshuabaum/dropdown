@@ -1,17 +1,17 @@
-# This project is deployed at joshuabaum.github.io/dropdown
+# This project is deployed at joshuabaum.github.io/dropdown, no need to download and run locally!
 
 # To run this project locally:
 
-## Clone the github repo
-gh repo clone joshuabaum/dropdown
+## 1. Clone the github repo
+
+### `gh repo clone joshuabaum/dropdown`
 
 ## Open project directory
 
-In the project directory, you can run:
+In the project directory run
 ### `npm install`
 
-then:
+then run
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Now the app is running development mode at [http://localhost:3000](http://localhost:3000).
